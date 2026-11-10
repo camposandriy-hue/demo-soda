@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es-CR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Soda La Casita del Sabor | Comida casera</title>
+  <meta name="description" content="Comida casera costarricense: desayunos, casados, bebidas y postres. Mira el menú y haz tu pedido por WhatsApp.">
+  <meta name="theme-color" content="#b4442a">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ENCABEZADO -->
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Soda La Casita del Sabor, inicio">
+      <span class="brand-mark" aria-hidden="true">LC</span>
+      <span class="brand-name">La Casita del Sabor</span>
+    </a>
+    <nav class="topnav" aria-label="Secciones">
+      <a href="#menu">Menú</a>
+      <a href="#galeria">Galería</a>
+      <a href="#visitanos">Visítanos</a>
+    </nav>
+  </header>
+
+  <main id="inicio">
+
+    <!-- PORTADA -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="status" id="estado" aria-live="polite">Revisando horario…</p>
+        <h1>Comida casera,<br><em>como en casa.</em></h1>
+        <p class="hero-text">Desayunos, casados y fresco natural, preparados cada día con ingredientes frescos. Pide por WhatsApp y pasa a recogerlo.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#menu">Ver el menú</a>
+          <a class="btn btn-ghost" id="btnWhatsHero" href="#" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLATILLO DEL DÍA -->
+    <section class="today" aria-labelledby="hoy-titulo">
+      <div class="container">
+        <div class="today-card">
+          <p class="eyebrow">Platillo del día</p>
+          <h2 id="hoy-titulo">Olla de carne</h2>
+          <p>Con yuca, ñampí, chayote, plátano y arroz. Disponible hasta agotar existencias.</p>
+          <p class="today-price">₡4.000</p>
+          <button class="btn btn-primary" type="button" data-add="olla-carne">Agregar al pedido</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENÚ -->
+    <section class="section" id="menu" aria-labelledby="menu-titulo">
+      <div class="container">
+        <p class="eyebrow">Nuestro menú</p>
+        <h2 id="menu-titulo" class="section-title">Elige lo que se te antoje</h2>
+        <div class="chips" id="filtros" role="group" aria-label="Categorías del menú"></div>
+        <div class="menu-grid" id="menuGrid"></div>
+      </div>
+    </section>
+
+      <!-- GALERÍA -->
+    <section class="section section-alt" id="galeria" aria-labelledby="galeria-titulo">
+      <div class="container">
+        <p class="eyebrow">Galería</p>
+        <h2 id="galeria-titulo" class="section-title">Mira lo que preparamos</h2>
+        <div class="gallery">
+          <div class="tile tile-1">
+            <img src="images/Casado.jpg" alt="Casado con pollo, arroz, frijoles y ensalada" loading="lazy">
+            <span>Casado</span>
+          </div>
+          <div class="tile tile-2">
+            <img src="images/GalloPinto.jpg" alt="Plato de gallo pinto con huevo" loading="lazy">
+            <span>Gallo pinto</span>
+          </div>
+          <div class="tile tile-3">
+            <img src="images/Postre.jpg" alt="Postres caseros: arroz con leche y tres leches" loading="lazy">
+            <span>Postres</span>
+          </div>
+          <div class="tile tile-4">
+            <img src="images/Local.jpg" alt="Interior del local de la soda" loading="lazy">
+            <span>Nuestro local</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOSOTROS -->
+    <section class="section" id="nosotros" aria-labelledby="nosotros-titulo">
+      <div class="container narrow">
+        <p class="eyebrow">Sobre nosotros</p>
+        <h2 id="nosotros-titulo" class="section-title">Una soda de barrio, con receta de familia</h2>
+        <p>Desde hace más de 10 años cocinamos para los vecinos con recetas de casa. Todo se prepara el mismo día, con productos de la zona, para que cada plato tenga el sabor de siempre.</p>
+        <ul class="highlights">
+          <li><strong>Hecho cada día</strong><span>Sin recalentados ni sorpresas.</span></li>
+          <li><strong>Precios justos</strong><span>Porciones generosas para todos.</span></li>
+          <li><strong>Pedido rápido</strong><span>Escribe, pasa y recoge.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- HORARIO Y UBICACIÓN -->
+    <section class="section section-alt" id="visitanos" aria-labelledby="visitanos-titulo">
+      <div class="container two-col">
+        <div>
+          <p class="eyebrow">Visítanos</p>
+          <h2 id="visitanos-titulo" class="section-title">Horario y ubicación</h2>
+          <table class="hours">
+            <tbody>
+              <tr><th scope="row">Lunes a viernes</th><td>6:00 a. m. a 4:00 p. m.</td></tr>
+              <tr><th scope="row">Sábado</th><td>6:00 a. m. a 2:00 p. m.</td></tr>
+              <tr><th scope="row">Domingo</th><td>Cerrado</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="contact-card">
+          <h3>Dónde estamos</h3>
+          <p>[Dirección de ejemplo] 100 m norte del parque central.</p>
+          <a class="btn btn-primary" id="btnMapa" href="#" target="_blank" rel="noopener">Cómo llegar</a>
+          <a class="btn btn-ghost-dark" id="btnWhatsContacto" href="#" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© <span id="anio"></span> Soda La Casita del Sabor. Demostración.</p>
+      <p>Página creada por <strong>ACODE Solutions CR</strong> · <a href="mailto:acodesolutionscr@gmail.com">acodesolutionscr@gmail.com</a></p>
+    </div>
+  </footer>
+
+  <!-- BARRA DE PEDIDO (aparece al agregar platillos) -->
+  <div class="order-bar" id="orderBar" hidden>
+    <div class="order-summary">
+      <strong id="orderCount">0 platillos</strong>
+      <span id="orderTotal">₡0</span>
+    </div>
+    <div class="order-actions">
+      <button class="btn-link" type="button" id="orderClear">Vaciar</button>
+      <a class="btn btn-whatsapp" id="orderSend" href="#" target="_blank" rel="noopener">Enviar pedido por WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+  <a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24s8.24 3.7 8.24 8.24-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.17-.48-.29z"/></svg>
+    <span>WhatsApp</span>
+  </a>
+
+  <script src="app.js"></script>
+</body>
+</html>

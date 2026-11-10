@@ -1,0 +1,390 @@
+/* ==========================================================
+   Soda La Casita del Sabor — demo de ACODE Solutions CR
+   Diseño mobile-first: primero celular, luego pantallas grandes
+   ========================================================== */
+
+:root {
+  --cream: #fbf5ea;
+  --cream-dark: #f2e8d3;
+  --ink: #2a1d16;
+  --ink-soft: #6b5a4f;
+  --terracotta: #b4442a;
+  --terracotta-dark: #8f3220;
+  --leaf: #3f6b3a;
+  --gold: #e3a82b;
+  --white: #ffffff;
+  --whatsapp: #1fa855;
+  --radius: 16px;
+  --shadow: 0 6px 20px rgba(42, 29, 22, 0.12);
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;           /* 16 px: legible en celular */
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--cream);
+  padding-bottom: 88px;      /* espacio para la barra de pedido */
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.container { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+.narrow { max-width: 720px; }
+
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; margin: 0 0 12px; }
+
+.eyebrow {
+  margin: 0 0 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+}
+
+/* ---------- Botones (mínimo 44 px de alto para el pulgar) ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 22px;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  font: 700 1rem var(--font-body);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+.btn:active { transform: scale(0.97); }
+.btn-primary { background: var(--terracotta); color: var(--white); }
+.btn-primary:hover { background: var(--terracotta-dark); }
+.btn-ghost { border-color: rgba(255, 255, 255, 0.85); color: var(--white); }
+.btn-ghost:hover { background: rgba(255, 255, 255, 0.15); }
+.btn-ghost-dark { border-color: var(--terracotta); color: var(--terracotta); }
+.btn-ghost-dark:hover { background: var(--terracotta); color: var(--white); }
+.btn-whatsapp { background: var(--whatsapp); color: var(--white); }
+.btn-whatsapp:hover { background: #178a45; }
+.btn-link {
+  min-height: 44px;
+  padding: 0 8px;
+  background: none;
+  border: 0;
+  color: var(--ink-soft);
+  font: 600 0.95rem var(--font-body);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ---------- Encabezado ---------- */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px;
+  background: rgba(251, 245, 234, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--cream-dark);
+}
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--terracotta);
+  color: var(--white);
+  font: 800 0.9rem var(--font-display);
+}
+.brand-name { font: 800 1.05rem var(--font-display); }
+.topnav { display: none; gap: 22px; }
+.topnav a { text-decoration: none; font-weight: 700; color: var(--ink-soft); }
+.topnav a:hover { color: var(--terracotta); }
+
+/* ---------- Portada ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 56px 0 64px;
+  color: var(--white);
+  background:
+    radial-gradient(circle at 85% 15%, rgba(227, 168, 43, 0.45), transparent 45%),
+    radial-gradient(circle at 10% 90%, rgba(63, 107, 58, 0.55), transparent 50%),
+    linear-gradient(135deg, #b4442a, #7d2a19);
+}
+.hero h1 { font-size: clamp(2.2rem, 9vw, 3.8rem); font-weight: 800; }
+.hero h1 em { font-style: italic; color: #ffd98a; }
+.hero-text { max-width: 540px; font-size: 1.1rem; opacity: 0.95; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 16px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.25);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+.status::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #bbb;
+}
+.status.open::before { background: #5be38a; box-shadow: 0 0 0 4px rgba(91, 227, 138, 0.3); }
+.status.closed::before { background: #ff8a7a; }
+
+/* ---------- Platillo del día ---------- */
+.today { margin-top: -32px; position: relative; z-index: 2; }
+.today-card {
+  padding: 22px;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border-left: 6px solid var(--gold);
+}
+.today-card h2 { font-size: 1.7rem; }
+.today-card p { margin: 0 0 8px; color: var(--ink-soft); }
+.today-price { font: 800 1.6rem var(--font-display); color: var(--terracotta) !important; }
+
+/* ---------- Secciones ---------- */
+.section { padding: 56px 0; }
+.section-alt { background: var(--cream-dark); }
+.section-title { font-size: clamp(1.7rem, 6vw, 2.4rem); margin-bottom: 22px; }
+
+/* ---------- Filtros del menú ---------- */
+.chips {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 22px;
+  padding-bottom: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.chips::-webkit-scrollbar { display: none; }
+.chip {
+  flex: none;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 2px solid var(--terracotta);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--terracotta);
+  font: 700 0.95rem var(--font-body);
+  cursor: pointer;
+}
+.chip[aria-pressed="true"] { background: var(--terracotta); color: var(--white); }
+
+/* ---------- Tarjetas del menú ---------- */
+.menu-grid { display: grid; gap: 14px; }
+.dish {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 10px rgba(42, 29, 22, 0.08);
+}
+.dish-top { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+.dish h3 { margin: 0; font-size: 1.15rem; }
+.dish-price { font: 800 1.15rem var(--font-display); color: var(--terracotta); white-space: nowrap; }
+.dish p { margin: 0; color: var(--ink-soft); font-size: 0.95rem; }
+.dish-tag {
+  align-self: flex-start;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--cream-dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+.dish-actions { margin-top: auto; }
+.add-btn {
+  width: 100%;
+  min-height: 44px;
+  border: 2px solid var(--leaf);
+  border-radius: 12px;
+  background: transparent;
+  color: var(--leaf);
+  font: 700 0.95rem var(--font-body);
+  cursor: pointer;
+}
+.add-btn:hover { background: var(--leaf); color: var(--white); }
+.qty {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 44px;
+  border: 2px solid var(--leaf);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.qty button {
+  width: 52px;
+  height: 44px;
+  border: 0;
+  background: var(--leaf);
+  color: var(--white);
+  font: 700 1.3rem var(--font-body);
+  cursor: pointer;
+}
+.qty span { font-weight: 800; }
+
+/* ---------- Galería (reemplaza los bloques por fotos reales) ---------- */
+.gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.tile {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 150px;
+  padding: 12px;
+  border-radius: var(--radius);
+  color: var(--white);
+  font-weight: 700;
+  overflow: hidden;
+}
+.tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.45), transparent 60%);
+}
+.tile span { position: relative; z-index: 1; }
+.tile-1 { background: linear-gradient(135deg, #c2623a, #8f3220); }
+.tile-2 { background: linear-gradient(135deg, #7a5c2e, #3a2a14); }
+.tile-3 { background: linear-gradient(135deg, #d9a441, #a8671f); }
+.tile-4 { background: linear-gradient(135deg, #5d8a56, #2f5330); }
+
+.tile img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Nosotros ---------- */
+.highlights { display: grid; gap: 12px; margin: 22px 0 0; padding: 0; list-style: none; }
+.highlights li {
+  display: flex;
+  flex-direction: column;
+  padding: 14px 16px;
+  background: var(--white);
+  border-radius: 12px;
+  border-left: 5px solid var(--leaf);
+}
+.highlights span { color: var(--ink-soft); font-size: 0.95rem; }
+
+/* ---------- Horario y contacto ---------- */
+.two-col { display: grid; gap: 28px; }
+.hours { width: 100%; border-collapse: collapse; }
+.hours th, .hours td { padding: 12px 0; text-align: left; border-bottom: 1px solid rgba(42, 29, 22, 0.15); }
+.hours th { font-weight: 700; }
+.hours td { color: var(--ink-soft); text-align: right; }
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 22px;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.contact-card h3 { margin: 0; font-size: 1.3rem; }
+.contact-card p { margin: 0; color: var(--ink-soft); }
+
+/* ---------- Pie de página ---------- */
+.footer { padding: 28px 0; background: var(--ink); color: #e9dccb; font-size: 0.9rem; }
+.footer-inner { display: grid; gap: 6px; }
+.footer p { margin: 0; }
+.footer a { color: #ffd98a; }
+
+/* ---------- Barra de pedido ---------- */
+.order-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 60;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+  background: var(--ink);
+  color: var(--white);
+  box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.25);
+}
+.order-bar[hidden] { display: none; }
+.order-summary { display: flex; flex-direction: column; line-height: 1.25; }
+.order-summary span { font: 800 1.2rem var(--font-display); color: #ffd98a; }
+.order-actions { display: flex; align-items: center; gap: 4px; }
+.order-actions .btn-link { color: #cdbfae; }
+
+/* ---------- Botón flotante de WhatsApp ---------- */
+.wa-float {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 55;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 52px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: var(--whatsapp);
+  color: var(--white);
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+body.has-order .wa-float { display: none; }  /* con pedido activo, la barra ocupa su lugar */
+
+/* ---------- Pantallas más grandes ---------- */
+@media (min-width: 720px) {
+  .topnav { display: flex; }
+  .hero { padding: 96px 0 104px; }
+  .menu-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery { grid-template-columns: repeat(4, 1fr); }
+  .tile { min-height: 220px; }
+  .highlights { grid-template-columns: repeat(3, 1fr); }
+  .two-col { grid-template-columns: 1.2fr 1fr; align-items: start; }
+  .footer-inner { grid-template-columns: 1fr auto; align-items: center; }
+}
+
+@media (min-width: 1000px) {
+  .menu-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn { transition: none; }
+}
